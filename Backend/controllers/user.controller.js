@@ -82,31 +82,31 @@ module.exports.logout = (req, res) => {
 };
 
 module.exports.updateProfile = async (req, res) => {
-  try{
-    const {profilepic} = req.body;
+  try {
+    const { profilepic } = req.body;
     const userId = req.user._id;
 
-    if(!profilepic){
-      return res.status(400).json({message: "Please select an image"})
+    if (!profilepic) {
+      return res.status(400).json({ message: "Please select an image" });
     }
 
-    const uploadResponse = await cloudniary.uploader.upload(profilepic)
-    const updatedUser = await userModel.findByIdAndUpdate(userId, {profilepic: uploadResponse.secure_url}, {new: true})
-    res.status(200).json(updatedUser)
+    const uploadResponse = await cloudniary.uploader.upload(profilepic);
+    const updatedUser = await userModel.findByIdAndUpdate(
+      userId,
+      { profilepic: uploadResponse.secure_url },
+      { new: true }
+    );
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Internal server error" });
   }
-  catch(err){
-    console.log(err)
-    res.status(500).json({message: "Internal server error"})
-  }
-
-}
-
+};
 
 module.exports.checkAuth = (req, res) => {
   try {
     res.status(200).json(req.user);
+  } catch (err) {
+    res.status(500).json({ message: "Internal server error" });
   }
-  catch(err){
-    res.status(500).json({message: "Internal server error"})
-  }
-}
+};
