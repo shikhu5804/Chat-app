@@ -54,7 +54,7 @@ const App = () => {
           path="/settings"
           element={authUser ? <Settings /> : <Navigate to="/login" />}
         />
-        <Route
+        {/* <Route
           path="/search-friends"
           element={authUser ? <Friend /> : <Navigate to="/login" />}
         />
@@ -62,7 +62,7 @@ const App = () => {
         <Route
           path="/friend-requests"
           element={authUser ? <FriendReq /> : <Navigate to="/login" />}
-        />
+        /> */}
       </Routes>
     </div>
   );
