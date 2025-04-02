@@ -110,3 +110,57 @@ module.exports.checkAuth = (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+
+// module.exports.searchUser = async (req, res) => {
+//   const { email } = req.query;
+
+//   if (!email) {
+//     return res.status(400).json({ message: "Email is required" });
+//   }
+
+//   try {
+//     const user = await userModel.findOne({ email }).select("fullname email profilepic");
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     res.status(200).json(user);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };
+
+// module.exports.sendFriendRequest = async (req, res) => {
+//   const { targetUserId } = req.body;
+//   const userId = req.user._id;
+//   console.log(userId, targetUserId);
+
+//   if (userId === targetUserId) {
+//     return res.status(400).json({ message: "You cannot send request to yourself" });
+//   }
+
+//   try {
+//     const user = await userModel.findById(userId);
+//     const targetUser = await userModel.findById(targetUserId);
+
+//     if (!user || !targetUser) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     const existingRequest = user.friends.find((f) => f.userId.toString() === targetUserId);
+
+//     if (existingRequest) {
+//       existingRequest.status = existingRequest.status === "pending" ? "none" : "pending";
+//     } else {
+//       user.friends.push({ userId: targetUserId, status: "pending" });
+//     }
+
+//     await user.save();
+//     res.status(200).json({ message: "Friend request sent", status: "pending" });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };

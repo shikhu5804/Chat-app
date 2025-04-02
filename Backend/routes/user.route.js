@@ -13,4 +13,12 @@ router.put("/update-profile", protectedRoute, userController.updateProfile);
 
 router.get("/check", protectedRoute, userController.checkAuth);
 
+// router.get("/search", protectedRoute, userController.searchUser);
+
+// router.post(
+//   "/friend-request",
+//   protectedRoute,
+//   userController.sendFriendRequest
+// );
+
 module.exports = router;

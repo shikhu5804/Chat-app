@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    // friends: [
+    //   {
+    //     userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    //     status: { type: String, enum: ["pending", "accepted", "none"], default: "none" }
+    //   }
+    // ]
   },
   { timestamps: true }
 );
