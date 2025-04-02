@@ -6,6 +6,7 @@ import ChatContainer from "../components/ChatContainer";
 
 const HomePage = () => {
   const { selectedUser } = chatStore();
+  document.title = "Chat | Chatty";
 
   return (
     <div className="h-screen bg-base-200">

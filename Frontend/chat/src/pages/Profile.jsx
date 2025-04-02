@@ -6,6 +6,8 @@ const ProfilePage = () => {
   const { authUser, checkAuth, isUpdatingProfile, updateProfile } = authStore();
   const [selectedImg, setSelectedImg] = useState(null);
 
+  document.title = "Profile | Chatty";
+
   useEffect(() => {
     checkAuth(); 
   }, []);

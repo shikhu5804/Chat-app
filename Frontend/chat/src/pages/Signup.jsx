@@ -15,6 +15,8 @@ import AuthImagePattern from "../components/AuthImagePattern";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+  document.title = "Singup | Chatty";
+
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullname: "",
